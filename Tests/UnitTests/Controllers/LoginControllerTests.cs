@@ -1,13 +1,14 @@
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Core.Models;
-using Api.Tests.Helpers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using NL.Kingscode.Flok.Storage.Api.Contexts;
-using NL.Kingscode.Flok.Storage.Api.Controllers.Authentication;
-using NL.Kingscode.Flok.Storage.Api.Requests.Authentication.Login;
+using Nl.KingsCode.SpaAuthentication.Controllers;
+using Nl.KingsCode.SpaAuthentication.Interfaces;
+using Nl.KingsCode.SpaAuthentication.Models;
+using Nl.KingsCode.SpaAuthentication.Requests.Authentication.Login;
 using NUnit.Framework;
+using Tests.Helpers;
+using Tests.Mock.Database;
 
 namespace Tests.UnitTests.Controllers
 {
@@ -19,7 +20,7 @@ namespace Tests.UnitTests.Controllers
         private const string InvalidEmail = "koen@kingscode.nl";
         private const string InvalidPassword = "4321tset";
 
-        private ApplicationContext Context { get; set; }
+        private MockContext Context { get; set; }
         private PasswordHasher<User> Hasher { get; set; }
         private LoginController Controller { get; set; }
 
@@ -76,7 +77,7 @@ namespace Tests.UnitTests.Controllers
         {
             Context = DatabaseHelper.CreateAppContext(nameof(LoginControllerTests));
             Hasher = new PasswordHasher<User>();
-            Controller = new LoginController(Context, new PasswordHasher<User>());
+            Controller = new LoginController(Context, new PasswordHasher<IUser>());
         }
 
         [TearDown]

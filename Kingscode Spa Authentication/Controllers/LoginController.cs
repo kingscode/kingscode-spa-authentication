@@ -1,27 +1,27 @@
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Core.Models;
-using Api.Core.Models.Abstract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NL.Kingscode.Flok.Storage.Api.Contexts;
-using NL.Kingscode.Flok.Storage.Api.Requests.Authentication.Login;
-using NL.Kingscode.Flok.Storage.Api.Responses;
-using NL.Kingscode.Flok.Storage.Api.Responses.Authentication.Login;
+using Nl.KingsCode.SpaAuthentication.Interfaces;
+using Nl.KingsCode.SpaAuthentication.Models;
+using Nl.KingsCode.SpaAuthentication.Models.Abstract;
+using Nl.KingsCode.SpaAuthentication.Requests.Authentication.Login;
+using Nl.KingsCode.SpaAuthentication.Responses;
+using Nl.KingsCode.SpaAuthentication.Responses.Authentication.Login;
 
-namespace NL.Kingscode.Flok.Storage.Api.Controllers.Authentication
+namespace Nl.KingsCode.SpaAuthentication.Controllers
 {
     [Route("api/auth/login")]
     [ApiController]
     [AllowAnonymous]
     public class LoginController : ControllerBase
     {
-        private readonly ApplicationContext _context;
-        private readonly PasswordHasher<User> _hasher;
+        private readonly IAuthenticationContext _context;
+        private readonly PasswordHasher<IUser> _hasher;
 
-        public LoginController(ApplicationContext context, PasswordHasher<User> hasher)
+        public LoginController(IAuthenticationContext context, PasswordHasher<IUser> hasher)
         {
             _context = context;
             _hasher = hasher;

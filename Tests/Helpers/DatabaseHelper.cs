@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using NL.Kingscode.Flok.Storage.Api.Contexts;
+using Tests.Mock.Database;
 
-namespace Api.Tests.Helpers
+namespace Tests.Helpers
 {
     public static class DatabaseHelper
     {
@@ -9,16 +9,16 @@ namespace Api.Tests.Helpers
         {
             var builder = new DbContextOptionsBuilder()
                 .UseInMemoryDatabase(name)
-                .EnableSensitiveDataLogging(true);
+                .EnableSensitiveDataLogging();
 
             return builder.Options;
         }
 
-        public static ApplicationContext CreateAppContext(string name)
+        public static MockContext CreateAppContext(string name)
         {
             var dbContext = InMemoryDbContextBuilder(name);
 
-            var appContext = new ApplicationContext(dbContext);
+            var appContext = new MockContext(dbContext);
             appContext.Database.EnsureDeleted();
             appContext.Database.EnsureCreated();
             return appContext;

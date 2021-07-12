@@ -2,27 +2,29 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
-using Api.Core.Models;
-using Api.Core.Models.Abstract;
-using DotNetEnv;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 using Microsoft.EntityFrameworkCore;
-using NL.Kingscode.Flok.Storage.Api.Contexts;
-using NL.Kingscode.Flok.Storage.Api.Requests.Authentication.Login;
+using Nl.KingsCode.SpaAuthentication.Interfaces;
+using Nl.KingsCode.SpaAuthentication.Models;
+using Nl.KingsCode.SpaAuthentication.Models.Abstract;
+using Nl.KingsCode.SpaAuthentication.Requests.Authentication.Login;
+using Nl.KingsCode.SpaAuthentication.Services;
 
-namespace NL.Kingscode.Flok.Storage.Api.Controllers.Authentication
+namespace Nl.KingsCode.SpaAuthentication.Controllers
 {
-    [Route("api/auth/dispense")]
+    [Microsoft.AspNetCore.Components.Route("api/auth/dispense")]
     [ApiController]
     [AllowAnonymous]
     public class DispenseController : ControllerBase
     {
-        private readonly ApplicationContext _context;
+        private readonly AuthenticationEnvironmentService _authenticationEnvironmentService;
+        private readonly IAuthenticationContext _context;
 
-        public DispenseController(ApplicationContext context)
+        public DispenseController(AuthenticationEnvironmentService authenticationEnvironmentService,IAuthenticationContext context)
         {
+            _authenticationEnvironmentService = authenticationEnvironmentService;
             _context = context;
         }
 
@@ -49,25 +51,23 @@ namespace NL.Kingscode.Flok.Storage.Api.Controllers.Authentication
             return new RedirectResult(GenerateRedirectUrl(null, request.RedirectUri).AbsoluteUri);
         }
 
-        private static UserToken CreateToken([NotNull] User user)
+        private static UserToken CreateToken([NotNull] IUser user)
         {
             return BaseToken.CreateForUser<UserToken>(user);
         }
 
-        private static Uri GenerateRedirectUrl(string token, string redirectUri)
+        private  Uri GenerateRedirectUrl(string token, string redirectUri)
         {
-            Env.Load();
-            var envScheme = Env.GetString("SPA_SCHEME");
-            if (!Enum.TryParse<HttpScheme>(envScheme, true, out var scheme))
+            if (!Enum.TryParse<HttpScheme>(_authenticationEnvironmentService.SpaScheme, true, out var scheme))
                 scheme = HttpScheme.Https;
 
             var url = new UriBuilder
             {
                 Scheme = scheme.ToString(),
-                Host = Env.GetString("SPA_HOST"),
-                Port = Env.GetInt("SPA_PORT", 80),
-                Path = Env.GetString("SPA_CALLBACK", "auth/callback"),
-                Fragment = (string.IsNullOrWhiteSpace(token) ? null : "token=" + token)!,
+                Host =_authenticationEnvironmentService.SpaHost,
+                Port =_authenticationEnvironmentService.SpaPort,
+                Path =_authenticationEnvironmentService.SpaCallback,
+                Fragment = string.IsNullOrWhiteSpace(token) ? string.Empty : "token=" + token,
                 Query = "redirect_uri=" + redirectUri
             };
 

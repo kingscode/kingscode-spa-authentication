@@ -1,13 +1,14 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
-using Api.Core.Services;
+using Nl.KingsCode.SpaAuthentication.Interfaces;
+using Nl.KingsCode.SpaAuthentication.Services;
 
-namespace Api.Core.Models.Abstract
+namespace Nl.KingsCode.SpaAuthentication.Models.Abstract
 {
     public abstract class BaseToken
     {
-        [Required] [NotNull] public User User { get; private set; }
+        [Required] [NotNull] public IUser User { get; private set; }
         [Required] [NotNull] public string Token { get; private set; }
 
         [Required] public DateTime ExpiresAt { get; set; }
@@ -17,7 +18,7 @@ namespace Api.Core.Models.Abstract
             return ExpiresAt < DateTime.Now;
         }
 
-        public static TToken CreateForUser<TToken>(User user)
+        public static TToken CreateForUser<TToken>(IUser user)
             where TToken : BaseToken, new()
         {
             return new()

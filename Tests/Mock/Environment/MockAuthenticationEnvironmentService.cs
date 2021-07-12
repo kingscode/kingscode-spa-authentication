@@ -1,7 +1,12 @@
+using Nl.KingsCode.SpaAuthentication.Services;
+
 namespace Tests.Mock.Environment
 {
-    public class MockAuthenticationEnvironmentService
+    public sealed class MockAuthenticationEnvironmentService : AuthenticationEnvironmentService
     {
-        
+        public MockAuthenticationEnvironmentService() :
+            base("http", "localhost", 8080)
+        {
+        }
     }
 }

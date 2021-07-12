@@ -1,6 +1,6 @@
 using System;
 
-namespace Api.Core.Services
+namespace Nl.KingsCode.SpaAuthentication.Services
 {
     public sealed class TokenGenerator
     {

@@ -1,9 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Api.Core.Models.Abstract;
+using Nl.KingsCode.SpaAuthentication.Models.Abstract;
 
-namespace Api.Core.Models
+namespace Nl.KingsCode.SpaAuthentication.Models
 {
     public sealed class LoginToken : BaseToken
     {
@@ -14,6 +14,6 @@ namespace Api.Core.Models
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; init; }
+        public long Id { get; private set; }
     }
 }

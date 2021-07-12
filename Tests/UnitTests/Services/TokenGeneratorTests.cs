@@ -1,7 +1,7 @@
-using Api.Core.Services;
+using Nl.KingsCode.SpaAuthentication.Services;
 using NUnit.Framework;
 
-namespace Api.Core.Tests.UnitTests.Services
+namespace Tests.UnitTests.Services
 {
     public class TokenGeneratorTests
     {

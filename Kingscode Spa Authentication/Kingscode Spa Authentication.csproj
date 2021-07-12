@@ -1,18 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-        <RootNamespace>Nl.Kingscode.SpaAuthentication</RootNamespace>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Nl.KingsCode.SpaAuthentication</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces" />
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="EntityFramework" Version="6.4.4" />
-      <PackageReference Include="System.Net.Http" Version="4.3.4" />
+      <Folder Include="Requests" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
     </ItemGroup>
 
 </Project>

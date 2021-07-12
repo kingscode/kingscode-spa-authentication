@@ -1,6 +1,15 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Nl.KingsCode.SpaAuthentication.Controllers;
+using Nl.KingsCode.SpaAuthentication.Interfaces;
+using Nl.KingsCode.SpaAuthentication.Models;
+using Nl.KingsCode.SpaAuthentication.Models.Abstract;
+using Nl.KingsCode.SpaAuthentication.Requests.Authentication.Login;
 using NUnit.Framework;
+using Tests.Helpers;
+using Tests.Mock.Environment;
 
 namespace Tests.UnitTests.Controllers
 {
@@ -11,7 +20,7 @@ namespace Tests.UnitTests.Controllers
 
         private const string InvalidEmail = "koen@kingscode.nl";
 
-        private ApplicationContext Context { get; set; }
+        private IAuthenticationContext Context { get; set; }
         private DispenseController Controller { get; set; }
         private LoginToken LoginToken { get; set; }
 
@@ -74,7 +83,6 @@ namespace Tests.UnitTests.Controllers
 
             var redirectResult = response as RedirectResult;
             Assert.True(redirectResult != null);
-            var token = redirectResult.Url.Split('#').Last();
             Assert.False(redirectResult.Url.Contains('#'));
         }
 
@@ -82,7 +90,7 @@ namespace Tests.UnitTests.Controllers
         public void SetUp()
         {
             Context = DatabaseHelper.CreateAppContext(nameof(LoginControllerTests));
-            Controller = new DispenseController(Context);
+            Controller = new DispenseController(new MockAuthenticationEnvironmentService(), Context);
         }
 
         [TearDown]

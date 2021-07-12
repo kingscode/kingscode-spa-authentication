@@ -97,11 +97,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\Tests.csproj",
-      "projectName": "Tests",
-      "projectPath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\Tests.csproj",
+      "projectUniqueName": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests_1\\Tests_1.csproj",
+      "projectName": "Tests_1",
+      "projectPath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests_1\\Tests_1.csproj",
       "packagesPath": "C:\\Users\\denni\\.nuget\\packages\\",
-      "outputPath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\obj\\",
+      "outputPath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests_1\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

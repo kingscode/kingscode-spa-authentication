@@ -2,10 +2,11 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
+using Nl.KingsCode.SpaAuthentication.Interfaces;
 
-namespace Api.Core.Models
+namespace Nl.KingsCode.SpaAuthentication.Models
 {
-    public sealed class User
+    public  class User:IUser
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,7 +17,7 @@ namespace Api.Core.Models
         [PasswordPropertyText] [NotNull] public string Password { get; set; }
 
         [Required]
-        [StringLengthAttribute(60, MinimumLength = 2)]
+        [StringLength(60, MinimumLength = 2)]
         public string Name { get; set; }
     }
 }

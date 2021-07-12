@@ -9,20 +9,20 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using NL.Kingscode.Flok.Storage.Api.Contexts;
+using Nl.KingsCode.SpaAuthentication.Interfaces;
 
-namespace NL.Kingscode.Flok.Storage.Api.AuthenticationHandlers
+namespace Nl.KingsCode.SpaAuthentication.AuthenticationHandlers
 {
     public sealed class KingscodeSpaAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
-        private readonly ApplicationContext _context;
+        private readonly IAuthenticationContext _context;
 
         public KingscodeSpaAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock,
-            ApplicationContext context
+            IAuthenticationContext context
         ) : base(options, logger, encoder, clock)
         {
             _context = context;

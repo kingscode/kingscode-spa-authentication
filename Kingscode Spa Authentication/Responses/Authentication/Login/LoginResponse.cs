@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NL.Kingscode.Flok.Storage.Api.Responses.Authentication.Login
+namespace Nl.KingsCode.SpaAuthentication.Responses.Authentication.Login
 {
     public sealed class LoginResponse
     {

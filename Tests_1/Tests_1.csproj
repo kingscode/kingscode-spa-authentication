@@ -31,12 +31,5 @@
     <ItemGroup>
         <PackageReference Include="NUnit" Version="3.13.2" />
     </ItemGroup>
-    <ItemGroup>
-      <Compile Include="UnitTests\Controllers\DispenseControllerTests.cs" />
-      <Compile Include="UnitTests\Controllers\LoginControllerTests.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Mock" />
-    </ItemGroup>
     <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

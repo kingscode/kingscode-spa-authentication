@@ -1,4 +1,4 @@
-namespace NL.Kingscode.Flok.Storage.Api.Responses
+namespace Nl.KingsCode.SpaAuthentication.Responses
 {
     public sealed class DataResponse<TData>
         where TData : class

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jbyZts050SAh1orQtA4W/P7Js3Rh7B8+UNiMC5q4Oyjrb9zDEkt8tpCRLg0q/g/K11Qmle4xpArtl4/0fr9JBg==",
+  "dgSpecHash": "T6xvtfb1n7LEs6OdYIo+J+g5wGyg8NP4gKG0qHrrBbmSf/gaBSHR3pQj2pwciXI6HH9Pc/pTbxXiTunHnLD6/Q==",
   "success": true,
-  "projectFilePath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\Tests.csproj",
+  "projectFilePath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests_1\\Tests_1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\denni\\.nuget\\packages\\nunit\\3.13.2\\nunit.3.13.2.nupkg.sha512"
   ],
