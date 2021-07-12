@@ -1,0 +1,27 @@
+name: .NET Core tests
+
+on: [pull_request]
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.4.1
+      with:
+        access_token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        dotnet restore
+        dotnet tool install --global dotnet-sonarscanner 
+        export PATH="$PATH:/Users/vsts/.dotnet/tools"
+
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
