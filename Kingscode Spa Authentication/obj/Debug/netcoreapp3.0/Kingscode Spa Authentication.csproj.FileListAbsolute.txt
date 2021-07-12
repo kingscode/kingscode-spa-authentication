@@ -1,4 +1,0 @@
-Z:\home\dennis\project\dotnet\kingscode-spa-authentication\Kingscode Spa Authentication\obj\Debug\netcoreapp3.0\Kingscode Spa Authentication.csproj.AssemblyReference.cache
-Z:\home\dennis\project\dotnet\kingscode-spa-authentication\Kingscode Spa Authentication\obj\Debug\netcoreapp3.0\Kingscode Spa Authentication.AssemblyInfoInputs.cache
-Z:\home\dennis\project\dotnet\kingscode-spa-authentication\Kingscode Spa Authentication\obj\Debug\netcoreapp3.0\Kingscode Spa Authentication.AssemblyInfo.cs
-Z:\home\dennis\project\dotnet\kingscode-spa-authentication\Kingscode Spa Authentication\obj\Debug\netcoreapp3.0\Kingscode Spa Authentication.csproj.CoreCompileInputs.cache
