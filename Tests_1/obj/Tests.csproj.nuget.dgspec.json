@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\Tests.csproj": {}
+  },
+  "projects": {
+    "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\Tests.csproj",
+        "projectName": "Tests",
+        "projectPath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\Tests.csproj",
+        "packagesPath": "C:\\Users\\denni\\.nuget\\packages\\",
+        "outputPath": "Z:\\home\\dennis\\project\\dotnet\\kingscode-spa-authentication\\Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\denni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
